@@ -21,4 +21,4 @@ print(f"janith Algewatta {y}")
 b = 0.0
 print(type(b))
 
-print("configure git")
+print("configure git...")
