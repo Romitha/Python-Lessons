@@ -21,6 +21,8 @@ all_words = data['all_words']
 tags = data['tags']
 model_state = data["model_state"]
 
+# print("data ", data[''])
+
 model = NeuralNet(input_size, hidden_size, output_size).to(device)
 model.load_state_dict(model_state)
 model.eval()
@@ -32,10 +34,8 @@ def get_response(msg:str) -> str:
     X = bag_of_words(sentence, all_words)
     X = X.reshape(1, X.shape[0])
     X = torch.from_numpy(X).to(device)
-
     output = model(X)
     _, predicted = torch.max(output, dim=1)
-
     tag = tags[predicted.item()]
 
     probs = torch.softmax(output, dim=1)

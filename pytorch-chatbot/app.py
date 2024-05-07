@@ -16,7 +16,6 @@ def home():
 @app.route("/get", methods=["POST"])
 def chatbot_response():
     msg = request.form["msg"]
-    print(msg)
     return get_response(msg)
 
 if __name__ == "__main__":
